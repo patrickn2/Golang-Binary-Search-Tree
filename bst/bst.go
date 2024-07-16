@@ -76,7 +76,7 @@ func (b *BST) LevelOrder() []int {
 
 func (b *BST) FindMin() (int, error) {
 	if b.IsEmpty() {
-		return 0, errors.New("Binary Search Tree is Empty")
+		return 0, errors.New("binary search tree is empty")
 	}
 	curr := b.root
 	for {
@@ -90,7 +90,7 @@ func (b *BST) FindMin() (int, error) {
 
 func (b *BST) FindMax() (int, error) {
 	if b.IsEmpty() {
-		return 0, errors.New("Binary Search Tree is Empty")
+		return 0, errors.New("binary search tree is empty")
 	}
 	curr := b.root
 	for {
@@ -100,4 +100,8 @@ func (b *BST) FindMax() (int, error) {
 		}
 		return curr.value, nil
 	}
+}
+
+func (b *BST) Delete(value int) {
+	b.root = b.root.delete(value)
 }

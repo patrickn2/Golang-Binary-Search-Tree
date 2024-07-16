@@ -26,4 +26,7 @@ func main() {
 	max, _ := bst.FindMax()
 	fmt.Println("Find Max", max)
 
+	bst.Delete(5)
+	fmt.Println("Depth Pre Order After Delete 5", bst.DepthPreOrder())
+
 }

@@ -83,3 +83,37 @@ func (n *Node) depthPostOrder() []int {
 	}
 	return append(result, n.value)
 }
+
+func (n *Node) min() int {
+	if n.left == nil {
+		return n.value
+	}
+	return n.left.min()
+}
+
+func (n *Node) delete(value int) *Node {
+	if n == nil {
+		return nil
+	}
+	if value < n.value {
+		n.left = n.left.delete(value)
+		return n
+	}
+	if value > n.value {
+		n.right = n.right.delete(value)
+		return n
+	}
+
+	if n.right == nil && n.left == nil {
+		return nil
+	}
+	if n.right == nil {
+		return n.left
+	}
+	if n.left == nil {
+		return n.right
+	}
+	n.value = n.right.min()
+	n.right = n.right.delete(n.value)
+	return n
+}
