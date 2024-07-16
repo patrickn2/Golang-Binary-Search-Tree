@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	sBst "github.com/patrickn2/golangbinarysearchtree/bst"
+	sBst "github.com/patrickn2/Golang-Binary-Search-Tree/bst"
 )
 
 func main() {
