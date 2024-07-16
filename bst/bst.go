@@ -1,5 +1,7 @@
 package bst
 
+import "errors"
+
 type BST struct {
 	root *Node
 }
@@ -72,24 +74,30 @@ func (b *BST) LevelOrder() []int {
 	return result
 }
 
-func (b *BST) FindMin() int {
+func (b *BST) FindMin() (int, error) {
+	if b.IsEmpty() {
+		return 0, errors.New("Binary Search Tree is Empty")
+	}
 	curr := b.root
 	for {
 		if curr.left != nil {
 			curr = curr.left
 			continue
 		}
-		return curr.value
+		return curr.value, nil
 	}
 }
 
-func (b *BST) FindMax() int {
+func (b *BST) FindMax() (int, error) {
+	if b.IsEmpty() {
+		return 0, errors.New("Binary Search Tree is Empty")
+	}
 	curr := b.root
 	for {
 		if curr.right != nil {
 			curr = curr.right
 			continue
 		}
-		return curr.value
+		return curr.value, nil
 	}
 }

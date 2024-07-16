@@ -21,7 +21,9 @@ func main() {
 	fmt.Println("Depth In Order", bst.DepthInOrder())
 	fmt.Println("Depth Post Order", bst.DepthPostOrder())
 	fmt.Println("Breadth Traversal Order", bst.LevelOrder())
-	fmt.Println("Find Min", bst.FindMin())
-	fmt.Println("Find Max", bst.FindMax())
+	min, _ := bst.FindMin()
+	fmt.Println("Find Min", min)
+	max, _ := bst.FindMax()
+	fmt.Println("Find Max", max)
 
 }
